@@ -3,6 +3,94 @@
     .btn-primary {
         border-radius: .4rem;
     }
+
+    .js-toggle {
+        touch-action: pan-x;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        border: 0;
+        padding: 0.5;
+        margin-top: 7px;
+  	}
+  
+    .js-toggle-screenreader-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        position: absolute;
+        width: 1px;
+    }
+  
+    .js-toggle-track {
+        width: 50px;
+        height: 24px;
+        padding: 0.5;
+        border-radius: 30px;
+        background-color: #1a1717;
+        transition: all 0.2s ease-in-out;
+	    box-shadow: inset 0.02em 0.02em 0.02em 0 rgba(255,255,255,0.5), inset -0.02em -0.02em 0.02em 0 rgba(0,0,0,0.5);
+    }
+  
+    .js-toggle-track-check {
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        left: 5px;
+        top: 0px;
+        bottom: 0px;
+        margin-top: auto;
+        margin-bottom: auto;
+        line-height: 0;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+    }
+  
+    .js-toggle--checked .js-toggle-track-check {
+        opacity: 1;
+        transition: opacity 0.25s ease;
+    }
+  
+    .js-toggle-track-x {
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        right: 5px;
+        top: 0px;
+        bottom: 0px;
+        margin-top: auto;
+        margin-bottom: auto;
+        line-height: 0;
+        opacity: 1;
+        transition: opacity 0.25s ease;
+    }
+  
+    .js-toggle--checked .js-toggle-track-x {
+        opacity: 0;
+    }
+  
+    .js-toggle-thumb {
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: #FFAD00;
+        box-sizing: border-box;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+        transform: translateX(0);
+    }
+  
+    .js-toggle--checked .js-toggle-thumb {
+        transform: translateX(26px);
+    }
+  
+    .js-toggle--focus .js-toggle-thumb, .js-toggle:active .js-toggle-thumb {
+        box-shadow: 0px 0px 2px 3px rgb(63, 57, 59, 0.719);
+    }
 </style>
 <!--
     ! ANNOUNCEMENT HERE !
@@ -34,11 +122,51 @@
             <div class="site-header__social navbar-nav flex-row">
 
                 <a class="nav-item nav-link nav-item mr-2mb-2 mb-lg-0" href="https://github.com/atsign-foundation/" aria-label="Github"><i class="fab fa-github fa-primary"></i></a>
-                <a class="nav-item nav-link nav-item mr-2 mb-2 mb-lg-0" href="https://discord.gg/55sHTQFxfz" aria-label="Discord"><i class="fab fa-discord fa-primary"></i></a>
-                
+                <a class="nav-item nav-link nav-item mr-2 mb-2 mb-lg-0" href="https://discord.gg/55sHTQFxfz" aria-label="Discord"><i class="fab fa-discord fa-primary"></i></a>    
             </div>
-
+            <div class="js-toggle-wrapper">
+                <div class="js-toggle">
+                    <div class="js-toggle-track">
+                        <div class="js-toggle-track-check">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                width="16" height="16"
+                                viewBox="0 0 172 172"
+                                style=" fill:#000000;"><g transform="translate(7.74,7.74) scale(0.91,0.91)"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="butt" stroke-linejoin="none" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g fill="#ffffff" stroke="#6a6464" stroke-width="17" stroke-linejoin="round"><path d="M168.30469,104.96162c-10.72628,34.18292 -42.65734,58.98391 -80.38121,58.98391c-46.51804,-0.0001 -84.22816,-37.71029 -84.22816,-84.22827c-0.01528,-29.19964 15.10359,-56.3212 39.94828,-71.66269c-2.55789,8.17037 -3.85517,16.68296 -3.84712,25.24436c0,46.51804 37.71029,84.22816 84.22816,84.22816c15.64347,0.02618 30.98202,-4.32648 44.28006,-12.56547z"></path></g><path d="M0,172v-172h172v172z" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path><g fill="#ffffff" stroke="none" stroke-width="1" stroke-linejoin="miter"><path d="M168.30469,104.96162c-10.72628,34.18292 -42.65734,58.98391 -80.38121,58.98391c-46.51804,-0.0001 -84.22816,-37.71029 -84.22816,-84.22827c-0.01528,-29.19964 15.10359,-56.3212 39.94828,-71.66269c-2.55789,8.17037 -3.85517,16.68296 -3.84712,25.24436c0,46.51804 37.71029,84.22816 84.22816,84.22816c15.64347,0.02618 30.98202,-4.32648 44.28006,-12.56547z"></path></g><path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path></g></g></svg>
+                        </div>
+                        <div class="js-toggle-track-x">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                width="16" height="16"
+                                viewBox="0 0 172 172"
+                                style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M39.41667,39.41667h93.16667v93.16667h-93.16667z" fill="#ecf0f1"></path><path d="M21.49961,86.00113l64.49927,-64.50152l64.50152,64.49927l-64.49927,64.50152z" fill="#ecf0f1"></path><path d="M46.58333,86c0,21.77592 17.64075,39.41667 39.41667,39.41667c21.77233,0 39.41667,-17.64075 39.41667,-39.41667c0,-21.77592 -17.64433,-39.41667 -39.41667,-39.41667c-21.77592,0 -39.41667,17.64075 -39.41667,39.41667" fill="#ffffff"></path></g></g></svg>
+                        </div>
+                    </div>
+                <div class="js-toggle-thumb"></div>
+                <input class="js-toggle-screenreader-only" type="checkbox" aria-label="Switch between Dark and Light mode">
+            </div>
         </ul>
     </div>
-
 </nav>
+<script>
+    var body = document.body;
+	var switcher = document.getElementsByClassName('js-toggle')[0];
+
+	switcher.addEventListener("click", function() {
+        this.classList.toggle('js-toggle--checked');
+        this.classList.add('js-toggle--focus');
+		
+		if (this.classList.contains('js-toggle--checked')) {
+			body.classList.add('dark-mode');
+			localStorage.setItem('darkMode', 'true');
+		} else {
+			body.classList.remove('dark-mode');
+			setTimeout(function() {
+				localStorage.removeItem('darkMode');
+			}, 100);
+		}
+	})
+
+	if (localStorage.getItem('darkMode')) {
+        switcher.classList.add('js-toggle--checked');
+        body.classList.add('dark-mode');
+	}
+</script>
