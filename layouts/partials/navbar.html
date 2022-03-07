@@ -90,6 +90,46 @@
   
     .js-toggle--focus .js-toggle-thumb, .js-toggle:active .js-toggle-thumb {
         box-shadow: 0px 0px 2px 3px rgb(63, 57, 59, 0.719);
+      
+    .mobile-nav
+    {
+        display: flex;
+    }
+    @media (max-width: 600px)
+    {
+        .td-navbar .td-navbar-nav-scroll {
+            font-size: 0.700rem;
+            overflow: visible;
+            height: auto;
+        }
+        .td-navbar .td-navbar-nav-scroll .navbar-nav
+        {
+            flex-wrap: wrap;
+            padding-bottom: 0;
+            align-items: center;
+            justify-content: center;
+        }
+        a.btn.btn-primary.nav-item {
+            height: 2rem;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+        .mobile-nav {
+            text-align: center;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-items: center;
+            padding-left: 25%;
+        }
+        .nav-fab {
+            margin-right: 0.5rem;
+            font-size: 25px;
+            padding-top: 1px;
+        }
+        .nav-git {
+            padding-top: 0px;
+        }
     }
 </style>
 <!--
@@ -118,7 +158,8 @@
             </li>
 
             {{ end }}
-            <a class="btn btn-primary nav-item mr-2 mb-2 mb-lg-0" href="/docs/get-started" role="button">Get started</a>
+        <div class="mobile-nav">
+            <a class="btn btn-primary nav-item" href="/docs/get-started" role="button">Get started</a>
             <div class="site-header__social navbar-nav flex-row">
 
                 <a class="nav-item nav-link nav-item mr-2mb-2 mb-lg-0" href="https://github.com/atsign-foundation/" aria-label="Github"><i class="fab fa-github fa-primary"></i></a>
@@ -143,6 +184,11 @@
                 <div class="js-toggle-thumb"></div>
                 <input class="js-toggle-screenreader-only" type="checkbox" aria-label="Switch between Dark and Light mode">
             </div>
+                <a class="nav-git nav-fab nav-item nav-link nav-item" href="https://github.com/atsign-foundation/" aria-label="Github"><i class="fab fa-github fa-primary"></i></a>
+                <a class="nav-fab nav-item nav-link nav-item" href="https://discord.gg/55sHTQFxfz" aria-label="Discord"><i class="fab fa-discord fa-primary"></i></a>
+            </div>
+        </div>
+
         </ul>
     </div>
 </nav>
