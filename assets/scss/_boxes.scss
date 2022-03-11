@@ -4,7 +4,7 @@
 
 // box-variant creates the main style for a colored section used on the site.
 @mixin box-variant($parent, $color-name, $color-value) {
-    $text-color: color-contrast(
+    $text-color: color-yiq(
         $color-value
     ); //Color-yiq renamed to color-contrast
     $link-color: mix($blue, $text-color, lightness($color-value));
